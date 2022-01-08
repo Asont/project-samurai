@@ -8,20 +8,9 @@
     grid-auto-columns: 2fr 10fr;
 }
 
-.header {
 
-    background-color:bisque ;
-    grid-area: h;
-}
 
-header img {
-    width:20px;
-}
 
-.nav {
-    background-color:darksalmon;
-    grid-area: n;
-}
 
 .content {
     background-color: coral;
