@@ -2,3 +2,7 @@
     background-color: coral;
     grid-area: c;
 }
+
+.item {
+    color:blueviolet;
+}
