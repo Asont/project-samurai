@@ -8,11 +8,8 @@
     grid-auto-columns: 2fr 10fr;
 }
 
-
-
-
-
-.content {
+.app-wrapper-content {
     background-color: coral;
     grid-area: c;
 }
+
