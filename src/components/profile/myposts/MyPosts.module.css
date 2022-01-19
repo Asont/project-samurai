@@ -1,3 +1,10 @@
 .item {
-    color:blueviolet;
+    color: blueviolet;
+}
+.postBlock{
+padding:10px;
+}
+
+.posts {
+    margin-top:10px;
 }

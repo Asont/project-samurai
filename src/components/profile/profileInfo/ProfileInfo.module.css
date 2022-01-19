@@ -1,0 +1,9 @@
+.content {
+    background-color: coral;
+    grid-area: c;
+
+}
+
+.descriptionBlock {
+    padding:10px;
+}

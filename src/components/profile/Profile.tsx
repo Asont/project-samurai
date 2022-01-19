@@ -1,15 +1,18 @@
 import React from 'react';
 import s from './Profile.module.css'
 import MyPosts from "./myposts/MyPosts";
+import ProfileInfo from "./profileInfo/ProfileInfo";
+import {PostDataPropsType} from "../../App";
 
-const Profile = () => {
+type ProfilePropsType ={
+    postData:Array<PostDataPropsType>
+}
+
+const Profile:React.FC<ProfilePropsType> = ({postData}) => {
     return (
         <div className={s.content}>
-            <div>
-                <img src="https://igate.com.ua/upload/photo/0001/0001/1717/8266/89.jpg" alt="image" height="300px"/>
-            </div>
-            <div>ava + discription</div>
-            <MyPosts/>
+            <ProfileInfo/>
+            <MyPosts postData={postData}/>
         </div>
     );
 };

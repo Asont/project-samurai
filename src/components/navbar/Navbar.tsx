@@ -7,10 +7,10 @@ const Navbar = () => {
     return (
         <nav className={s.nav}>
             <div className={s.item}>
-                <NavLink to="/profile">Profile</NavLink>
+                <NavLink to="/profile" style={({ isActive }) =>({color: isActive ? 'gold' : 'white'})}>Profile</NavLink>
             </div>
             <div className={`${s.item} ${s.atcive}`}>
-                <NavLink to="/dialogs">Messages</NavLink>
+                <NavLink to="/dialogs" style={({ isActive }) =>({color: isActive ? 'gold' : 'white'})}>Messages</NavLink>
             </div>
             <div className={s.item}>
                 <a>News</a>

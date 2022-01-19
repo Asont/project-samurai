@@ -1,12 +1,14 @@
 .nav {
     background-color:darksalmon;
     grid-area: n;
+    padding: 20px;
 }
 
-.item {
+.item a{
     color:white;
+    text-decoration: none;
 }
 
-.item.atcive {
+.item a.atcive {
   color:yellow;
 }
