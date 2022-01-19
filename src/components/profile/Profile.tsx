@@ -2,13 +2,15 @@ import React from 'react';
 import s from './Profile.module.css'
 import MyPosts from "./myposts/MyPosts";
 import ProfileInfo from "./profileInfo/ProfileInfo";
-import {PostDataPropsType} from "../../App";
+import {PostDataPropsType} from "../../redux/state";
 
-type ProfilePropsType ={
-    postData:Array<PostDataPropsType>
+
+
+type ProfilePropsType = {
+    postData: Array<PostDataPropsType>
 }
 
-const Profile:React.FC<ProfilePropsType> = ({postData}) => {
+const Profile: React.FC<ProfilePropsType> = ({postData}) => {
     return (
         <div className={s.content}>
             <ProfileInfo/>
