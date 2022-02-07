@@ -5,9 +5,16 @@ import Navbar from "./components/navbar/Navbar";
 import Profile from "./components/profile/Profile";
 import Dialogs from "./components/dialogs/Dialogs";
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {addNewMessageText, RootStateType} from './redux/state';
+
+type AppStyle ={
+    state:RootStateType
+    changeText : (text:string)=>void
+}
+
+const App:React.FC<AppStyle> = ({state,changeText}) => {
 
 
-function App(props: any) {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
@@ -15,10 +22,11 @@ function App(props: any) {
                 <Navbar/>
                 <div className="app-wrapper-content">
                     <Routes>
-                        <Route path="/profile" element={<Profile postData={props.state.profilePage.postData}/>}/>
+                        <Route path="/profile" element={<Profile postData={state.profilePage.postData}
+                                                                 addNewMessageText={addNewMessageText} changeText = {changeText}/>}/>
                         <Route path="/dialogs"
-                               element={<Dialogs dialogsData={props.state.dialogPage.dialogsData}
-                                                 messageData={props.state.dialogPage.messageData}/>}/>
+                               element={<Dialogs dialogsData={state.dialogPage.dialogsData}
+                                                 messageData={state.dialogPage.messageData}/>}/>
                     </Routes>
                 </div>
             </div>

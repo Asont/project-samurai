@@ -4,9 +4,10 @@ import s from './Post.module.css'
 type PostPropsType = {
     message:string
     likeCount:number
+    id:number
 }
 
-const Post: React.FC<PostPropsType> = ({message, likeCount}) => {
+const Post: React.FC<PostPropsType> = ({message, likeCount, id}) => {
     return (
         <div className={s.item}>
             <img
