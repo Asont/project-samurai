@@ -5,14 +5,15 @@ import Navbar from "./components/navbar/Navbar";
 import Profile from "./components/profile/Profile";
 import Dialogs from "./components/dialogs/Dialogs";
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import {addNewMessageText, RootStateType} from './redux/state';
+import { RootStateType} from './redux/state';
 
 type AppStyle ={
     state:RootStateType
     changeText : (text:string)=>void
+    addNewMessageText: (postMassege:string)=>void
 }
 
-const App:React.FC<AppStyle> = ({state,changeText}) => {
+const App:React.FC<AppStyle> = ({state,changeText, addNewMessageText}) => {
 
 
     return (

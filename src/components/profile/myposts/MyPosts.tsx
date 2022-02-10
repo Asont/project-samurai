@@ -1,7 +1,7 @@
 import React, {ChangeEvent, LegacyRef, useState} from 'react';
 import s from './MyPosts.module.css'
 import Post from "./posts/Post";
-import {changeText, PostDataPropsType, state} from "../../../redux/state";
+import { PostDataPropsType } from "../../../redux/state";
 
 
 
@@ -22,7 +22,7 @@ const MyPosts: React.FC<MyPostsPropsType> = ({postData, addNewMessageText,change
 
 
     const addPosts = () => {
-        addNewMessageText(state.profilePage.messageForNewPost)
+        addNewMessageText(store.getState().profilePage.messageForNewPost)
         changeText("")
     }
 

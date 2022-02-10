@@ -3,22 +3,22 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-import {changeText, RootStateType, state, subscribe} from "./redux/state";
+import store, { RootStateType} from "./redux/state";
 import reportWebVitals from "./reportWebVitals";
 
 
- let reRenderTree = () => {
+ let reRenderTree = (state:RootStateType) => {
 
     ReactDOM.render(
         <React.StrictMode>
-            <App state={state} changeText={changeText}/>
+            <App state={store.getState()} changeText={store.changeText} addNewMessageText={store.addNewMessageText}/>
         </React.StrictMode>,
         document.getElementById('root')
     );
 }
 
-reRenderTree()
-subscribe(reRenderTree)
+reRenderTree(store.getState())
+store.subscribe(reRenderTree)
 
 
 // If you want to start measuring performance in your app, pass a function
