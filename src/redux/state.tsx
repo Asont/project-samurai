@@ -108,9 +108,11 @@ let store = {
 
     },
     getState () {
+        debugger
         return this._state
     },
     addNewMessageText (postMassege:string)  {
+        debugger
         let newPost:PostDataPropsType = {id:1, message:postMassege, likeCount:4}
         this._state.profilePage.postData.push(newPost)
         reRenderTree(this._state);
@@ -122,7 +124,7 @@ let store = {
 
     },
      subscribe (observe:any) {
-        reRenderTree=observe
+        this.reRenderTree=observe
     },
      reRenderTree (state:RootStateType) {
         console.log("state changed")

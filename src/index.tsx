@@ -11,7 +11,7 @@ import reportWebVitals from "./reportWebVitals";
 
     ReactDOM.render(
         <React.StrictMode>
-            <App state={store.getState()} changeText={store.changeText} addNewMessageText={store.addNewMessageText}/>
+            <App state={state} changeText={store.changeText.bind(store)} addNewMessageText={store.addNewMessageText.bind(store)}/>
         </React.StrictMode>,
         document.getElementById('root')
     );
