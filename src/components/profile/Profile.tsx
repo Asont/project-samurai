@@ -8,15 +8,14 @@ import {PostDataPropsType} from "../../redux/state";
 
 type ProfilePropsType = {
     postData: Array<PostDataPropsType>
-    addNewMessageText : (postMassege:string) => void
-    changeText : (text:string)=>void
+    dispatch:(action:any)=>void
 }
 
-const Profile: React.FC<ProfilePropsType> = ({postData, addNewMessageText, changeText}) => {
+const Profile: React.FC<ProfilePropsType> = ({postData,dispatch}) => {
     return (
         <div className={s.content}>
             <ProfileInfo/>
-            <MyPosts postData={postData} addNewMessageText={addNewMessageText} changeText={changeText} />
+            <MyPosts postData={postData} dispatch={dispatch} />
         </div>
     );
 };

@@ -9,6 +9,7 @@ const Message: React.FC<MessagePropsType> = ({text}) => {
     return (
         <div className={s.message}>
             {text}
+
         </div>
     )
 }

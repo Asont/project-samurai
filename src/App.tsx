@@ -9,11 +9,10 @@ import { RootStateType} from './redux/state';
 
 type AppStyle ={
     state:RootStateType
-    changeText : (text:string)=>void
-    addNewMessageText: (postMassege:string)=>void
+    dispatch:(action:any)=>void
 }
 
-const App:React.FC<AppStyle> = ({state,changeText, addNewMessageText}) => {
+const App:React.FC<AppStyle> = ({state, dispatch}) => {
 
 
     return (
@@ -24,10 +23,10 @@ const App:React.FC<AppStyle> = ({state,changeText, addNewMessageText}) => {
                 <div className="app-wrapper-content">
                     <Routes>
                         <Route path="/profile" element={<Profile postData={state.profilePage.postData}
-                                                                 addNewMessageText={addNewMessageText} changeText = {changeText}/>}/>
+                                                                 dispatch={dispatch}/>}/>
                         <Route path="/dialogs"
                                element={<Dialogs dialogsData={state.dialogPage.dialogsData}
-                                                 messageData={state.dialogPage.messageData}/>}/>
+                                                 messageData={state.dialogPage.messageData} dispatch={dispatch}/>}/>
                     </Routes>
                 </div>
             </div>

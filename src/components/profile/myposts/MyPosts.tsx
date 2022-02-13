@@ -1,17 +1,17 @@
 import React, {ChangeEvent, LegacyRef, useState} from 'react';
 import s from './MyPosts.module.css'
 import Post from "./posts/Post";
-import store, { PostDataPropsType } from "../../../redux/state";
+import store, {actionNewPostCreater, PostDataPropsType} from "../../../redux/state";
 
 
 
 type MyPostsPropsType = {
     postData: Array<PostDataPropsType>
-    addNewMessageText : (postMassege:string) => void
-    changeText : (text:string)=>void
+
+    dispatch:(action:any)=>void
 }
 
-const MyPosts: React.FC<MyPostsPropsType> = ({postData, addNewMessageText,changeText }) => {
+const MyPosts: React.FC<MyPostsPropsType> = ({postData,dispatch }) => {
 
     const [post, setPosts] = useState<string>("")
 
@@ -21,7 +21,8 @@ const MyPosts: React.FC<MyPostsPropsType> = ({postData, addNewMessageText,change
 
 
     const addPosts = () => {
-        addNewMessageText(post)
+        let action = actionNewPostCreater(post)
+        dispatch(action)
         setPosts("")
     }
 
