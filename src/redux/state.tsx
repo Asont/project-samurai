@@ -1,3 +1,6 @@
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dilalogs-reducer";
+
 let reRenderTree = (state: RootStateType) => {
     console.log("state changed")
 }
@@ -29,8 +32,9 @@ export type RootStateType = {
     dialogPage: DialogPageType
 }
 
-const actionAddNewPost = "ADD-NEW-POST"
-const sendMessage ="SEND-MESSAGE"
+
+
+
 
 let store = {
     _state: {
@@ -58,11 +62,12 @@ let store = {
                     {id: 2, text: "Are you happy?"},
                     {id: 3, text: "Yes, I will go to London next month"},
                 ],
-            }
+            },
+        sidebar : {}
 
     },
     _callsubscriber() {
-        console.log("state changed")
+
     },
     getState() {
         return this._state
@@ -71,22 +76,14 @@ let store = {
         this._callsubscriber = observe
     },
     dispatch(action: any) {
-        if (action.type == actionAddNewPost) {
-            let newPost: PostDataPropsType = {id: 1, message: action.postMassege, likeCount: 4}
-            this._state.profilePage.postData.push(newPost)
-            reRenderTree(this._state);
-        } if(action.type ==sendMessage) {
-            debugger
-            let newTextMessage:MessageDataPropsType = {id:32, text:action.newText}
-            this._state.dialogPage.messageData.push(newTextMessage)
-            reRenderTree(this._state)
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.dialogPage = dialogsReducer(this._state.dialogPage, action)
+        debugger
+        reRenderTree(this._state)
     }
 }
 
-export const actionNewPostCreater = (newPost:string) => ({type: actionAddNewPost, postMassege:newPost})
 
-export const actionMessageCreater =(newMessage:string) => ({type:sendMessage, newText:newMessage})
 
 
 export default store

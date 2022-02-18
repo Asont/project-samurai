@@ -15,7 +15,7 @@ const Profile: React.FC<ProfilePropsType> = ({postData,dispatch}) => {
     return (
         <div className={s.content}>
             <ProfileInfo/>
-            <MyPosts postData={postData} dispatch={dispatch} />
+            <MyPosts postData={postData} dispatch={dispatch}  />
         </div>
     );
 };

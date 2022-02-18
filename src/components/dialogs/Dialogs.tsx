@@ -2,7 +2,8 @@ import React, {ChangeEvent, useState} from 'react';
 import s from './Dialogs.module.css'
 import Message from "./message/Message";
 import Dialog from "./dialog/Dialog";
-import {actionMessageCreater, DialogsDataPropsType, MessageDataPropsType} from "../../redux/state";
+import { DialogsDataPropsType, MessageDataPropsType} from "../../redux/state";
+import {actionMessageCreater} from "../../redux/dilalogs-reducer";
 
 
 
